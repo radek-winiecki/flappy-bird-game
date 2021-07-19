@@ -19,17 +19,17 @@ const state = {
 
 // control the game
 cvs.addEventListener("click", function (evt) {
-   switch (state.current) {
-       case state.getReady:
-           state.current = state.game;
-           break;
-       case state.game:
-           bird.flap();
-           break;
-       case state.over:
-           state.current = state.getReady;
-           break;
-   }
+    switch (state.current) {
+        case state.getReady:
+            state.current = state.game;
+            break;
+        case state.game:
+            bird.flap();
+            break;
+        case state.over:
+            state.current = state.getReady;
+            break;
+    }
 });
 
 // background
@@ -80,12 +80,21 @@ const bird = {
     draw: function () {
         let bird = this.animation[this.frame];
 
-        ctx.drawImage(sprite, bird.sX, bird.sY, this.w, this.h, this.x - this.w/2, this.y - this.h/2, this.w, this.h);
+        ctx.drawImage(sprite, bird.sX, bird.sY, this.w, this.h, this.x - this.w / 2, this.y - this.h / 2, this.w, this.h);
     },
 
     flap: function () {
-        
+
     },
+
+    update: function () {
+        // if the game state is get ready state, the bird must flap slowly
+        this.period = state.current === state.getReady ? 10 : 5;
+        // we increment the frame by 1, each period
+        this.frame += frames % this.period === 0 ? 1 : 0;
+        // frame goes from 0 to 4, then again to 0
+        this.frame = this.frame % this.animation.length;
+    }
 }
 
 // get ready
@@ -94,7 +103,7 @@ const getReady = {
     sY: 228,
     w: 173,
     h: 152,
-    x: cvs.width/2 - 173/2,
+    x: cvs.width / 2 - 173 / 2,
     y: 80,
 
     draw: function () {
@@ -110,7 +119,7 @@ const gameOver = {
     sY: 228,
     w: 225,
     h: 202,
-    x: cvs.width/2 - 225/2,
+    x: cvs.width / 2 - 225 / 2,
     y: 90,
 
     draw: function () {
