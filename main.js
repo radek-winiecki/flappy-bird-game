@@ -35,6 +35,7 @@ const fg = {
 
     draw: function () {
         ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
+        ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x + this.w, this.y, this.w, this.h);
     }
 }
 
@@ -44,6 +45,7 @@ function draw() {
     ctx.fillRect(0, 0, cvs.width, cvs.height);
 
     bg.draw();
+    fg.draw();
 }
 
 // update
