@@ -126,7 +126,7 @@ const getReady = {
     y: 80,
 
     draw: function () {
-        if (this.state.current === state.getReady) {
+        if (state.current === state.getReady) {
             ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
         }
     }
