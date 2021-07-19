@@ -87,8 +87,8 @@ const bird = {
         ctx.drawImage(sprite, bird.sX, bird.sY, this.w, this.h, this.x - this.w / 2, this.y - this.h / 2, this.w, this.h);
     },
 
-    flap: function () {
-
+    flap: function() {
+        this.speed = - this.jump;
     },
 
     update: function () {
@@ -100,10 +100,18 @@ const bird = {
         this.frame = this.frame % this.animation.length;
 
         if (state.current === state.getReady) {
-
+            this.y = 150; // reset position of the bird after game over
         } else {
             this.speed += this.gravity;
             this.y += this.speed;
+
+            if (this.y + this.h/2 >= cvs.height - fg.h) {
+                this.y = cvs.height - fg.h - this.h/2;
+
+                if (state.current === state.game) {
+                    state.current = state.over;
+                }
+            }
         }
     }
 }
