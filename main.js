@@ -63,6 +63,7 @@ const fg = {
         ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
         ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x + this.w, this.y, this.w, this.h);
     },
+
     update: function () {
         if (state.current === state.game) {
             this.x = (this.x - this.dx) % (this.w / 2);
@@ -188,7 +189,7 @@ const pipes = {
     w: 53,
     h: 400,
     gap: 85,
-    maxPos: -150,
+    maxYPos: -150,
     dx: 2,
 
     draw: function () {
@@ -202,7 +203,7 @@ const pipes = {
             ctx.drawImage(sprite, this.top.sX, this.top.sY, this.w, this.h, p.x, topYPos, this.w, this.h);
 
             // bottom pipe
-            ctx.drawImage(sprite, this.bottom.sX, this.bottom.sY, this.w, this.h, p.x, topYPos, this.w, this.h);
+            ctx.drawImage(sprite, this.bottom.sX, this.bottom.sY, this.w, this.h, p.x, bottomYPos, this.w, this.h);
         }
     },
     update: function () {
