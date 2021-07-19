@@ -77,6 +77,10 @@ const bird = {
 
     frame: 0,
 
+    gravity: 0.25,
+    jump: 4.6,
+    speed: 0,
+
     draw: function () {
         let bird = this.animation[this.frame];
 
@@ -94,6 +98,13 @@ const bird = {
         this.frame += frames % this.period === 0 ? 1 : 0;
         // frame goes from 0 to 4, then again to 0
         this.frame = this.frame % this.animation.length;
+
+        if (state.current === state.getReady) {
+
+        } else {
+            this.speed += this.gravity;
+            this.y += this.speed;
+        }
     }
 }
 
@@ -143,7 +154,7 @@ function draw() {
 
 // update
 function update() {
-
+    bird.update();
 }
 
 // loop
