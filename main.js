@@ -123,6 +123,7 @@ const bird = {
                 // if the speed is greater than the jump - the bird is falling down
                 if (this.speed >= this.jump) {
                     this.rotation = 90 * DEGREE;
+                    this.frame = 1;
                 } else {
                     this.rotation = -25 * DEGREE;
                 }
