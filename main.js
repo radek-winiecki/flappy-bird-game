@@ -24,6 +24,20 @@ const bg = {
     }
 }
 
+// foreground
+const fg = {
+    sX: 276,
+    sY: 0,
+    w: 224,
+    h: 112,
+    x: 0,
+    y: cvs.height - 112,
+
+    draw: function () {
+        ctx.drawImage(sprite, this.sX, this.sY, this.w, this.h, this.x, this.y, this.w, this.h);
+    }
+}
+
 // draw
 function draw() {
     ctx.fillStyle = "#70c5ce";
