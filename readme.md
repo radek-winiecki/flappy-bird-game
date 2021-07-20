@@ -4,12 +4,12 @@ Some screenshots from the project:
 
 1. Get ready:
    
-   ![screenshot](screenshots/ss1.png)
+   ![screenshot](screenshots/screenshot1.png)
 
 2. Stay tuned:
-   
-   ![screenshot](screenshots/ss2.png)
+
+![screenshot](screenshots/screenshot2.png)
 
 3. Game over:
-   
-   ![screenshot](screenshots/ss3.png)
+
+   ![screenshot](screenshots/screenshot3.png)
